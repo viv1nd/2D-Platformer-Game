@@ -138,7 +138,7 @@ private void OnTriggerEnter2D(Collider2D other)
     public void PickUpKey()
     {
         Debug.Log("Key Picked Up");
-        scoreController.scoreIncrease(20);
+        scoreController.scoreIncrease(10);
     }
 
     public void Playerkill()
