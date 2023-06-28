@@ -17,7 +17,23 @@ namespace AimingRig.Assets.Scripts.Levels
 
         private void OnClick()
         {
-            SceneManager.LoadScene(LevelName);
+
+            LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
+            switch(levelStatus)
+            {
+                case LevelStatus.Locked:
+                    Debug.Log("Can't Play this LEVEL ! The Level is LOCKED ");
+                break;
+
+                case LevelStatus.Unlocked:
+                    SceneManager.LoadScene(LevelName);
+                break;
+
+                case LevelStatus.Completed:
+                    SceneManager.LoadScene(LevelName);
+                break;
+            }
+            
         }
     }
 }
