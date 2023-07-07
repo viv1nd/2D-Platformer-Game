@@ -9,28 +9,30 @@ namespace AimingRig.Assets.Scripts.Levels
     {
         private Button button;
         public string LevelName;
+        
         private void Awake()
         {
             button = GetComponent<Button>();
             button.onClick.AddListener(OnClick);
+            
         }
 
         private void OnClick()
         {
-
             LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
             switch(levelStatus)
             {
                 case LevelStatus.Locked:
-                    Debug.Log("Can't Play this LEVEL ! The Level is LOCKED ");
-                break;
+                     Debug.Log("Can't Play this LEVEL ! The Level is LOCKED ");
+                     break;
 
                 case LevelStatus.Unlocked:
                     SceneManager.LoadScene(LevelName);
-                break;
+                    
+                    break;
 
                 case LevelStatus.Completed:
-                    SceneManager.LoadScene(LevelName);
+                     SceneManager.LoadScene(LevelName);
                 break;
             }
             

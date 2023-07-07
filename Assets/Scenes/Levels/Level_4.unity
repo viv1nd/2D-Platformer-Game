@@ -2560,11 +2560,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3511196365823581296, guid: ecff5980bcfe75148a940bb4250bb90e,
-        type: 3}
-      propertyPath: field of view
-      value: 13.89356
-      objectReference: {fileID: 0}
     - target: {fileID: 641837853, guid: ecff5980bcfe75148a940bb4250bb90e, type: 3}
       propertyPath: gos
       value: 
@@ -2574,26 +2569,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1871244573}
     - target: {fileID: 641837853, guid: ecff5980bcfe75148a940bb4250bb90e, type: 3}
-      propertyPath: Fordeathdetector
-      value: 
-      objectReference: {fileID: 684512905}
-    - target: {fileID: 641837853, guid: ecff5980bcfe75148a940bb4250bb90e, type: 3}
       propertyPath: forDeathDetector
       value: 
       objectReference: {fileID: 684512905}
-    - target: {fileID: 773651966, guid: ecff5980bcfe75148a940bb4250bb90e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 773651966, guid: ecff5980bcfe75148a940bb4250bb90e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 1962824452755579208, guid: ecff5980bcfe75148a940bb4250bb90e,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3007807328347124229, guid: ecff5980bcfe75148a940bb4250bb90e,
         type: 3}
       propertyPath: m_Name
@@ -2654,8 +2632,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -3511196365823581296, guid: ecff5980bcfe75148a940bb4250bb90e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecff5980bcfe75148a940bb4250bb90e, type: 3}
 --- !u!1 &1313899612
 GameObject:

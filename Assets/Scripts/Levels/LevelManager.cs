@@ -5,57 +5,67 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     private static LevelManager instance;
-
+    
     public string[] Levels;
 
-    public static LevelManager Instance{ get{ return instance; } }
+    public static LevelManager Instance { get { return instance; } }
     private void Awake()
     {
-        if(instance== null)
+
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        
-        else 
+
+        else
         {
             Destroy(gameObject);
         }
     }
 
-   private void Start()
+    private void Start()
 
-    {       
-        if (GetLevelStatus( Levels[0]) == LevelStatus.Locked)
-        {
-            SetLevelStatus( Levels[0], LevelStatus.Unlocked);
-        }
+    {
+         if (GetLevelStatus(Levels[0]) == LevelStatus.Locked)
+            {
+                SetLevelStatus(Levels[0], LevelStatus.Unlocked);
+            }
     }
 
-    public void MarkLevelFinsihed()
+        public void MarkLevelFinsihed()
     {
         Scene currentScene = SceneManager.GetActiveScene();
 
 
-        SetLevelStatus(currentScene.name,LevelStatus.Completed); // set level status to complete
+        SetLevelStatus(currentScene.name, LevelStatus.Completed); // set level status to complete
 
-        int currentSceneIndex = Array.FindIndex(Levels, level=> level == currentScene.name);
+        int currentSceneIndex = Array.FindIndex(Levels, level => level == currentScene.name);
         int nextSceneIndex = currentSceneIndex + 1;
-        if(nextSceneIndex < Levels.Length)
+        if (nextSceneIndex < Levels.Length)
         {
-            SetLevelStatus(Levels[nextSceneIndex],LevelStatus.Unlocked);
+            SetLevelStatus(Levels[nextSceneIndex], LevelStatus.Unlocked);
+
         }
     }
 
-    public LevelStatus GetLevelStatus( string level)
+    public LevelStatus GetLevelStatus(string level)
     {
-        LevelStatus levelStatus = (LevelStatus) PlayerPrefs.GetInt(level , 0);
+        LevelStatus levelStatus = (LevelStatus)PlayerPrefs.GetInt(level, 0);
         return levelStatus;
     }
 
-    public void SetLevelStatus( string level,LevelStatus levelStatus)
+    public void SetLevelStatus(string level, LevelStatus levelStatus)
     {
-        PlayerPrefs.SetInt(level , (int) levelStatus);
-        Debug.Log("Setting Level : "  + level + " Status : " + levelStatus);
+        PlayerPrefs.SetInt(level, (int)levelStatus);
+        if(levelStatus == LevelStatus.Completed)
+        {
+            //Calling Lobby
+
+            SceneManager.LoadScene(0);
+
+        }
+        Debug.Log("Setting Level :  " + level +  " Status :  " + levelStatus);
     }
+
 }
