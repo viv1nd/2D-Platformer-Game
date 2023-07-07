@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NextLevelController : MonoBehaviour
 {
@@ -10,6 +9,8 @@ public class NextLevelController : MonoBehaviour
         if(collision.gameObject.GetComponent<PlayerController>()!= null)
         {
             Debug.Log("Level Finished !!!!");
+            LevelManager.Instance.MarkLevelFinsihed();
+
         }
     }
 }
